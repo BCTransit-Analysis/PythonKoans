@@ -19,7 +19,16 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
-    number_unique_sides = len(set([a,b,c]))
+    side_lengths = [a,b,c]
+    number_unique_sides = len(set(side_lengths))
+    
+    if a-b-c >=0 or b-a-c >= 0 or c-a-b>=0:
+        raise TriangleError()
+    for side_length in side_lengths:
+        if side_length <=0:
+            raise TriangleError()
+            
+    
     if number_unique_sides == 1:
         return 'equilateral'
     elif number_unique_sides == 2:
